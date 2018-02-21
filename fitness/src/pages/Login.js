@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
-import {  Text, View, StatusBar, StyleSheet } from 'react-native';
-import Login from './src/pages/Login';
+import {  Text, View, UserInput, StyleSheet } from 'react-native';
 
 
 
-export default class userInput extends Component {
+export default class Login extends Component {
 
   render(){
 
     return(
-        <View style= {styles.container}>
-          <StatusBar
-          backgroundColor="#0088a3"
-          barStyle="light-content"
-          />
+        <View style={styles.container}>
+        
+          <UserInput>
 
-        <Login />
+          </UserInput>
+          
               
 
         </View>
