@@ -8,7 +8,11 @@ signUp: async (req, res, next) => {
 
   const { email, password } = req.value.body;
   const newUser = new User({ email, password });
-  await newUser.save();
+  await newUser.save(function(err){
+    if (err)
+      throw err;
+    return doesNotThrow(null, newUser)
+  });
   res.json({ user: 'Made!!'});
 }
 

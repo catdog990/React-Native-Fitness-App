@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {  Text, View, StatusBar, StyleSheet } from 'react-native';
 import Login from './src/pages/Login';
+import Signup from './src/pages/Signup';
+
 
 
 
@@ -15,8 +17,8 @@ export default class userInput extends Component {
           barStyle="light-content"
           />
 
-        <Login />
-              
+        <Signup />
+            
 
         </View>
           
@@ -27,7 +29,7 @@ export default class userInput extends Component {
 
 const styles = StyleSheet.create ({
   container : {
-    backgroundColor: '#00b8d4',
+    backgroundColor: '#263238',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center'
