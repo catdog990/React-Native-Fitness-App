@@ -46,6 +46,7 @@ const styles = StyleSheet.create ({
     color: 'rgba(255, 255, 255, 0.5)'
   },
   textS: {
-    color: 'white'
+    color: 'white',
+    paddingHorizontal: 10
   }
 });

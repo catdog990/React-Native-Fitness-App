@@ -1,0 +1,23 @@
+{
+	"ProjectName": "fitness",
+	"ProjectPath": "C:\\Users\\Oz\\Documents\\UCFBootcamp\\React-Native-Fitness-App\\fitness",
+	"SourceDir": "src",
+	"DistributionDir": "build",
+	"BuildCommand": "npm.cmd run-script build",
+	"StartCommand": "npm.cmd run-script start",
+	"InitializationTime": "2018-02-26-11-57-14",
+	"LastConfigurationTime": "2018-02-26-11-57-27",
+	"LastNPMInstallTime": "",
+	"FrontendLastBuildTime": "",
+	"LastPublishTime": "",
+	"BackendFormat": "yml",
+	"BackendLastSyncTime": "2018-03-01-03-10-18",
+	"BackendLastBuildTime": "2018-03-01-03-10-12",
+	"BackendLastPushTime": "2018-03-01-03-10-14",
+	"BackendLastPushSuccessful": true,
+	"BackendProjectID": "da236dbb-1b18-11e8-b7ec-1579a7b87ac8",
+	"BackendProjectName": "fitness-2018-02-26-12-16-53",
+	"BackendProjectConsoleUrl": "https://console.aws.amazon.com/mobilehub/home#/da236dbb-1b18-11e8-b7ec-1579a7b87ac8/build",
+	"BackendProjectCreationTime": "2018-02-26T17:16:58.939Z",
+	"BackendProjectLastUpdatedTime": "2018-03-01T08:10:12.847Z"
+}
