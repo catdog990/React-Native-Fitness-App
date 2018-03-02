@@ -27,13 +27,16 @@ export default class Signup extends Component {
       username, 
       password
     )
-      .then(() => console.log("Logged In!"))
+      .then( user => {
+        this.setState({ user })
+        console.log("Logged In!")
+      })
       .catch(err => console.log('Error Logging In!:', err))
   }
 
-  confirmSignUp(){
+  confirmSignIn(){
     Auth.confirmSignUp(
-      this.state.username,
+      this.state.user,
       this.state.confirmationNumber
     )
     .then(() => console.log("Confirmed!"))
@@ -64,7 +67,7 @@ export default class Signup extends Component {
               underlineColorAndroid='rgba(0,0,0,0)'
             />
 
-            <Button title="Log In" onPress={this.signUp.bind(this)}/>
+            <Button title="Log In" onPress={this.signIn.bind(this)}/>
 
             <TextInput 
               onChangeText={value => this.onChangeText('confirmationNumber', value)}
@@ -74,7 +77,7 @@ export default class Signup extends Component {
               underlineColorAndroid='rgba(0,0,0,0)'
             />
 
-            <Button title="Confirm" onPress={this.confirmSignUp.bind(this)}/>
+            <Button title="Confirm" onPress={this.confirmSignIn.bind(this)}/>
 
         
 
