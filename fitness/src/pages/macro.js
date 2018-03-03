@@ -4,12 +4,12 @@ import {  Text, View, TextInput, StyleSheet, TouchableOpacity } from 'react-nati
 export default class Macro extends Component {
 
     state= {
-        Male: '',
+        Gender: '',
         Age: '',
         Weight: '',
         Height: '',
-        ExcerciseLevel: '',
-        PrimaryGoal: ''
+        excerciseLevel: '',
+        Goal: ''
       }
 
       onChangeText(key, value){
@@ -21,24 +21,25 @@ export default class Macro extends Component {
 
     calc(){
 
-        const weight = userWeight;
-        const goal = userGoal;
-        const protein = weight x 1;
-        const fat = weight x 0.5;
-        const carbs = 
-        if(goal === 'Lose Weight'){
-            weight x 1;
+        const weight = this.state.Weight;
+        const goal = this.state.Goal;
+        const protein = weight * 1;
+        const fat = weight * 0.5;
+        const carbs = () => {
+            if(goal === 'Lose Weight'){
+                weight * 1
+            }
+            else if(goal === 'Maintain'){
+                weight * 2
+            }
+            else{
+                weight * 3
+            }
+           
         }
-        else if(goal === 'Maintain'){
-            weight x 2;
-        }
-        else{
-            weight x 3; 
-        };
-
         
 
-    }
+    };
 
 
     render(){
@@ -47,26 +48,52 @@ export default class Macro extends Component {
         <View style={styles.container}>
 
              <Text style={styles.text}> Gender </Text>
-             <TextInput style={styles.userInput} placeholder='Male/Female'/> 
+             <TextInput 
+                onChangeText={value => this.onChangeText('Gender', value)}
+                style={styles.userInput} 
+                placeholder='Male/Female'/> 
 
              <Text style={styles.text}> Age </Text>
-             <TextInput style={styles.userInput} placeholder='' keyboardType='numeric'/>
+             <TextInput 
+                onChangeText={value => this.onChangeText('Age', value)}
+                style={styles.userInput} 
+                placeholder='' 
+                keyboardType='numeric'/>
 
              <Text style={styles.text}> Weight </Text>
-             <TextInput style={styles.userInput} placeholder='lbs' keyboardType='numeric'/> 
+             <TextInput 
+                onChangeText={value => this.onChangeText('Weight', value)}
+                style={styles.userInput} 
+                placeholder='lbs' 
+                keyboardType='numeric'/> 
 
+        {/* This will needed to be added, but not sure how both will be added to the 'Height' attribute */}
+        {/*  onChangeText={value => this.onChangeText('username', value)} */}
              <Text style={styles.text}> Height </Text>
-             <TextInput style={styles.userInput} placeholder='ft' keyboardType ='numeric'/>
-             <TextInput style={styles.userInput} placeholder='in' keyboardType='numeric'/>
+             <TextInput 
+                 style={styles.userInput} 
+                 placeholder='ft' 
+                 keyboardType ='numeric'/>
+
+             <TextInput 
+                style={styles.userInput} 
+                placeholder='in' 
+                keyboardType='numeric'/>
 
              <Text style={styles.text}> Exercise Level </Text>
-             <TextInput style={styles.userInput} placeholder='None / Moderate / Active'/>
+             <TextInput 
+                onChangeText={value => this.onChangeText('excerciseLevel', value)}
+                style={styles.userInput} 
+                placeholder='None / Moderate / Active'/>
 
              <Text style={styles.text}> Primary Goal </Text>
-             <TextInput style={styles.userInput} placeholder='Lose Weight / Maintain / Gain'/>
+             <TextInput 
+                onChangeText={value => this.onChangeText('Goal', value)}
+                style={styles.userInput} 
+                placeholder='Lose Weight / Maintain / Gain'/>
 
      
-            <TouchableOpacity style={styles.button}><Text style={styles.text}> Calculate </Text></TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={this.calc.bind(this)}><Text style={styles.text}> Calculate </Text></TouchableOpacity>
            
         </View>
 

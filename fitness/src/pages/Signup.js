@@ -45,8 +45,9 @@ export default class Signup extends Component {
       this.state.username,
       this.state.confirmationNumber
     )
-    .then(() => {console.log("Confirmed!");
-    Actions.macro(); 
+    .then(() => {
+      console.log("Confirmed!");
+      Actions.macro(); 
     
   })
     .catch(err => console.log('Error with Confirmation!:', err))
