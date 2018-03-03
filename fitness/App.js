@@ -4,7 +4,8 @@ import Amplify, { Auth } from 'aws-amplify'
 import AWSConfig from './src/aws-exports'
 Amplify.configure(AWSConfig)
 
-import Routes from './src/pages/derp';
+import Routes from './src/pages/routes';
+import Macro from './src/pages/macro';
 
 
 
@@ -15,29 +16,12 @@ export default class userInput extends Component {
   render(){
 
     return(
-      
 
-        <Routes />
-            
-
-       
-         
-
+      <Macro/>        
 
     );
 
   };
 };
 
-const styles = StyleSheet.create ({
-  container : {
-    backgroundColor: '#263238',
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  text : {
-    color: 'white',
-    fontSize: 16
-  }
-});
+

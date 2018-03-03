@@ -14,13 +14,21 @@ export default class ConfirmUser extends Component {
     <View style={styles.container}>
         <Logo />
 
-        <TextInput 
-      
-        style={styles.userInput}
-        placeholder='Confirmation Number'
-      />
+         <TextInput 
+              onChangeText={value => this.onChangeText('confirmationNumber', value)}
+              style={styles.userInput}
+              placeholder='Confirmation Number'
+              placeholderTextColor="white"
+              underlineColorAndroid='rgba(0,0,0,0)'
+            />
 
-      <Button title="Confirm"/>
+       <TouchableOpacity 
+              onPress={this.confirmSignUp.bind(this)}
+              style={styles.button}>
+ 
+                <Text style={styles.buttonText}> Confirm </Text>
+
+            </TouchableOpacity>
 
       </ View>
     );

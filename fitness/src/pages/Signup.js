@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import {  Text, View, TextInput, StyleSheet, Button } from 'react-native';
+import {  Text, View, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import Verification from '../components/verification';
 import Logo from '../components/logo';
-import Amplify, { Auth } from 'aws-amplify'
-import AWSConfig from '../aws-exports'
-Amplify.configure(AWSConfig)
-
+import Amplify, { Auth } from 'aws-amplify';
+import AWSConfig from '../aws-exports';
+Amplify.configure(AWSConfig);
+import { Actions } from 'react-native-router-flux';
 
 export default class Signup extends Component {
 
@@ -21,6 +21,10 @@ export default class Signup extends Component {
     this.setState({
       [key]: value
     })
+  }
+
+  LogIn(){
+    Actions.login()
   }
 
   signUp(){
@@ -41,7 +45,10 @@ export default class Signup extends Component {
       this.state.username,
       this.state.confirmationNumber
     )
-    .then(() => console.log("Confirmed!"))
+    .then(() => {console.log("Confirmed!");
+    Actions.macro(); 
+    
+  })
     .catch(err => console.log('Error with Confirmation!:', err))
   }
 
@@ -74,6 +81,7 @@ export default class Signup extends Component {
               placeholder='Phone Number'
               placeholderTextColor="white"
               underlineColorAndroid='rgba(0,0,0,0)'
+              keyboardType='numeric'
             />
             <TextInput 
               onChangeText={value => this.onChangeText('email', value)}
@@ -81,9 +89,16 @@ export default class Signup extends Component {
               placeholder='Email'
               placeholderTextColor="white"
               underlineColorAndroid='rgba(0,0,0,0)'
+              keyboardType='email-address'
             />
 
-            <Button title="Sign Up" onPress={this.signUp.bind(this)}/>
+            <TouchableOpacity 
+              onPress={this.signUp.bind(this)}
+               style={styles.button}>
+
+               <Text style={styles.buttonText}> Sign Up </Text>
+
+            </TouchableOpacity>
 
             <TextInput 
               onChangeText={value => this.onChangeText('confirmationNumber', value)}
@@ -91,17 +106,28 @@ export default class Signup extends Component {
               placeholder='Confirmation Number'
               placeholderTextColor="white"
               underlineColorAndroid='rgba(0,0,0,0)'
+              keyboardType='numeric'
             />
 
-            <Button title="Confirm" onPress={this.confirmSignUp.bind(this)}/>
+            <TouchableOpacity 
+              onPress={this.confirmSignUp.bind(this)}
+              style={styles.button}>
+ 
+                <Text style={styles.buttonText}> Confirm </Text>
+
+            </TouchableOpacity>
 
         
 
+          <View style={styles.question}>
 
-             <View style={styles.question}>
-            <Text style={styles.textQ}>Have an account?</Text>
-            <Text style={styles.textS}>Login!</Text>
+              <Text style={styles.textQ}>Already have an account?</Text>
+
+              <TouchableOpacity onPress={this.LogIn}><Text style={styles.textS}>Log In!</Text></TouchableOpacity>
+
           </View>
+
+             
           
               
 
@@ -130,6 +156,17 @@ const styles = StyleSheet.create ({
       marginVertical: 10
   
     },
+    button : {
+      width: 150,
+      backgroundColor: 'rgba(255, 255, 255, 0.3)',
+      marginVertical: 10,
+      borderRadius: 25,
+    },
+    buttonText: {
+      fontSize: 16,
+      color: 'white',
+      textAlign: 'center'
+    },
     question : {
       flex: 1,
       alignItems: 'center',
@@ -143,16 +180,5 @@ const styles = StyleSheet.create ({
       color: 'white',
       paddingHorizontal: 10
     },
-    touch: {
-      width:100,
-      backgroundColor: '#0087a2',
-      borderRadius: 25,
-      marginVertical: 10
-  
-    },
-    touchText: {
-      fontSize: 16,
-      color: 'white',
-      textAlign: 'center'
-    }
+ 
   });

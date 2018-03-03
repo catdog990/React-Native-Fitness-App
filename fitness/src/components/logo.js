@@ -14,7 +14,7 @@ export default class Logo extends Component {
              <Image style={{width:150, height: 150}}
              source={require('../images/Nick.png')} />
 
-             <Text style={styles.text}>App Name Pending MF!</Text>
+           
 
         </View>
           

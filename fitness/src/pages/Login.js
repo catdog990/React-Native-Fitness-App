@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import {  Text, View, TextInput, StyleSheet, Button } from 'react-native';
+import {  Text, View, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import Verification from '../components/verification';
 import Logo from '../components/logo';
-import Amplify, { Auth } from 'aws-amplify'
+import Amplify, { Auth } from 'aws-amplify';
+import { Actions } from 'react-native-router-flux';
 
 
 
@@ -19,6 +20,10 @@ export default class Signup extends Component {
     this.setState({
       [key]: value
     })
+  }
+
+  singUpRoute(){
+    Actions.signup()
   }
 
   signIn(){
@@ -67,7 +72,13 @@ export default class Signup extends Component {
               underlineColorAndroid='rgba(0,0,0,0)'
             />
 
-            <Button title="Log In" onPress={this.signIn.bind(this)}/>
+             <TouchableOpacity onPress={this.signIn.bind(this)}
+               style={styles.button}
+             >
+               <Text style={styles.buttonText}> Log In </Text>
+
+            </TouchableOpacity>
+        
 
             <TextInput 
               onChangeText={value => this.onChangeText('confirmationNumber', value)}
@@ -75,16 +86,23 @@ export default class Signup extends Component {
               placeholder='Confirmation Number'
               placeholderTextColor="white"
               underlineColorAndroid='rgba(0,0,0,0)'
+              keyboardType='numeric'
             />
 
-            <Button title="Confirm" onPress={this.confirmSignIn.bind(this)}/>
+            <TouchableOpacity onPress={this.confirmSignIn.bind(this)}
+              style={styles.button}
+            >
+                <Text style={styles.buttonText}> Confirm </Text>
 
+            </TouchableOpacity>
         
 
 
              <View style={styles.question}>
             <Text style={styles.textQ}>Don't have an account?</Text>
-            <Text style={styles.textS}>Sign Up!</Text>
+
+            <TouchableOpacity onPress={this.singUpRoute}><Text style={styles.textS}>Sign Up!</Text></TouchableOpacity>
+
           </View>
           
               
@@ -114,6 +132,17 @@ const styles = StyleSheet.create ({
       marginVertical: 10
   
     },
+    button : {
+      width: 150,
+      backgroundColor: 'rgba(255, 255, 255, 0.3)',
+      marginVertical: 10,
+      borderRadius: 25,
+    },
+    buttonText: {
+      fontSize: 16,
+      color: 'white',
+      textAlign: 'center'
+    },
     question : {
       flex: 1,
       alignItems: 'center',
@@ -126,17 +155,5 @@ const styles = StyleSheet.create ({
     textS: {
       color: 'white',
       paddingHorizontal: 10
-    },
-    touch: {
-      width:100,
-      backgroundColor: '#0087a2',
-      borderRadius: 25,
-      marginVertical: 10
-  
-    },
-    touchText: {
-      fontSize: 16,
-      color: 'white',
-      textAlign: 'center'
     }
   });
