@@ -19,6 +19,7 @@ export default class Macro extends Component {
       }
     
 
+
     calc(){
 
         const weight = this.state.Weight;
@@ -27,7 +28,7 @@ export default class Macro extends Component {
         const fat = weight * 0.5;
         const carbs = () => {
             if(goal === 'Lose Weight'){
-                weight * 1
+               weight * 1
             }
             else if(goal === 'Maintain'){
                 weight * 2
@@ -38,7 +39,7 @@ export default class Macro extends Component {
            
         }
         
-
+        carbs();
     };
 
 
@@ -51,6 +52,7 @@ export default class Macro extends Component {
              <TextInput 
                 onChangeText={value => this.onChangeText('Gender', value)}
                 style={styles.userInput} 
+                underlineColorAndroid='rgba(0,0,0,0)'
                 placeholder='Male/Female'/> 
 
              <Text style={styles.text}> Age </Text>
@@ -58,6 +60,7 @@ export default class Macro extends Component {
                 onChangeText={value => this.onChangeText('Age', value)}
                 style={styles.userInput} 
                 placeholder='' 
+                underlineColorAndroid='rgba(0,0,0,0)'
                 keyboardType='numeric'/>
 
              <Text style={styles.text}> Weight </Text>
@@ -65,6 +68,7 @@ export default class Macro extends Component {
                 onChangeText={value => this.onChangeText('Weight', value)}
                 style={styles.userInput} 
                 placeholder='lbs' 
+                underlineColorAndroid='rgba(0,0,0,0)'
                 keyboardType='numeric'/> 
 
         {/* This will needed to be added, but not sure how both will be added to the 'Height' attribute */}
@@ -73,23 +77,27 @@ export default class Macro extends Component {
              <TextInput 
                  style={styles.userInput} 
                  placeholder='ft' 
+                 underlineColorAndroid='rgba(0,0,0,0)'
                  keyboardType ='numeric'/>
 
              <TextInput 
                 style={styles.userInput} 
                 placeholder='in' 
+                underlineColorAndroid='rgba(0,0,0,0)'
                 keyboardType='numeric'/>
 
              <Text style={styles.text}> Exercise Level </Text>
              <TextInput 
                 onChangeText={value => this.onChangeText('excerciseLevel', value)}
                 style={styles.userInput} 
+                underlineColorAndroid='rgba(0,0,0,0)'
                 placeholder='None / Moderate / Active'/>
 
              <Text style={styles.text}> Primary Goal </Text>
              <TextInput 
                 onChangeText={value => this.onChangeText('Goal', value)}
                 style={styles.userInput} 
+                underlineColorAndroid='rgba(0,0,0,0)'
                 placeholder='Lose Weight / Maintain / Gain'/>
 
      
