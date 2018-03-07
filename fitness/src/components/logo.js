@@ -12,7 +12,7 @@ export default class Logo extends Component {
         <View style={styles.container}>
             
              <Image style={{width:150, height: 150}}
-             source={require('../images/Nick.png')} />
+             source={require('../images/macro.jpg')} />
 
            
 
