@@ -1,7 +1,7 @@
 import React from 'react';
-import { FlatList, ActivityIndicator, Text, View  } from 'react-native';
+import { FlatList, Text, View, ActivityIndicator, ScrollView  } from 'react-native';
 
-export default class FetchExample extends React.Component {
+export default class Profile extends React.Component {
 
   constructor(props){
     super(props);
@@ -39,13 +39,41 @@ export default class FetchExample extends React.Component {
     }
 
     return(
-      <View style={{flex: 1, paddingTop:20}}>
-        <FlatList
-          data={this.state.dataSource}
-          renderItem={({item}) => <Text>{item.Weight}, {item.Goal}</Text>}
-          keyExtractor={(item, index) => index}
-        />
-      </View>
+    //   <View style={{flex: 1, paddingTop:20}}>
+    //     <FlatList
+    //       data={this.state.dataSource}
+    //       renderItem={({item}) => <Text>{item.Weight}, {item.Goal}</Text>}
+    //       keyExtractor={(item, index) => index}
+    //     />
+    //   </View>
+        <View   style={styles.wut}>
+       <ScrollView 
+       horizontal 
+       contentContainerStyle={styles.contentContainer}
+       data={this.state.dataSource}
+       renderItem={({item}) => <Text>{item.Weight}, {item.Goal}</Text>}
+       keyExtractor={(item, index) => index}
+       >
+       
+       <Text>{item.Weight}, {item.Goal}</Text>
+     
+        </ScrollView>
+</View>
+        
+
+
     );
   }
+}
+
+const styles =  {
+    wut: {
+        flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center'
+    }, 
+    contentContainer: {
+        alignItems: 'center'
+    
+    }
 }
